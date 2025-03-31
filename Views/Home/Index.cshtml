@@ -1,0 +1,30 @@
+﻿@*  Kell a típus *@
+
+@model List<string>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@if (Model is null || !Model.Any())
+{
+    <form method="post" action="Aloldal/EmailSubmit">
+        <input name="email" type="text" />
+        <input name="username" type="text" />
+        <input type="date" name="date" />
+        <input type="submit" />
+    </form>
+}
+else
+{
+    <div class="text-center">
+        @foreach (string elem in Model)
+        {
+            <h1>@elem</h1>
+        }
+        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+}
+
+
+
